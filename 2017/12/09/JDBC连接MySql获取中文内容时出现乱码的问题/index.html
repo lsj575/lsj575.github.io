@@ -6,18 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: JavaSE | 龙思杰的个人博客</title>
+  <title>JDBC 连接Mysqlll获取中文时出现的乱码问题 | 龙思杰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="努力是奇迹的另一个名字">
-<meta property="og:type" content="website">
-<meta property="og:title" content="龙思杰的个人博客">
-<meta property="og:url" content="http://yoursite.com/categories/JavaSE/index.html">
+  <meta name="description" content="前段时间学习JDBC，要连接mysql获取数据。按照老师的样例数据，要存一些名字之类的信息，用的都是英文名，我当时就不太想用英文，就把我室友的名字存了进去，嘿嘿，结果，出问题了。">
+<meta name="keywords" content="Java，JDBC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDBC 连接Mysqlll获取中文时出现的乱码问题">
+<meta property="og:url" content="http://yoursite.com/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/index.html">
 <meta property="og:site_name" content="龙思杰的个人博客">
-<meta property="og:description" content="努力是奇迹的另一个名字">
+<meta property="og:description" content="前段时间学习JDBC，要连接mysql获取数据。按照老师的样例数据，要存一些名字之类的信息，用的都是英文名，我当时就不太想用英文，就把我室友的名字存了进去，嘿嘿，结果，出问题了。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/code1.png">
+<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/code2.png">
+<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/code3.png">
+<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/description.png">
+<meta property="og:updated_time" content="2017-12-09T14:25:12.355Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="龙思杰的个人博客">
-<meta name="twitter:description" content="努力是奇迹的另一个名字">
+<meta name="twitter:title" content="JDBC 连接Mysqlll获取中文时出现的乱码问题">
+<meta name="twitter:description" content="前段时间学习JDBC，要连接mysql获取数据。按照老师的样例数据，要存一些名字之类的信息，用的都是英文名，我当时就不太想用英文，就把我室友的名字存了进去，嘿嘿，结果，出问题了。">
+<meta name="twitter:image" content="http://yoursite.com/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/code1.png">
   
     <link rel="alternative" href="/atom.xml" title="龙思杰的个人博客" type="application/atom+xml">
   
@@ -157,36 +164,109 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JDBC连接MySql获取中文内容时出现乱码的问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/" class="archive-article-date">
-  	<time datetime="2017-12-09T13:44:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/">JDBC 连接Mysqlll获取中文时出现的乱码问题</a>
+    <h1 class="article-title" itemprop="name">
+      JDBC 连接Mysqlll获取中文时出现的乱码问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/" class="archive-article-date">
+  	<time datetime="2017-12-09T13:44:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
+</a>
+        
+        
+          <span class="archive-article-date">阅读量 <span id="busuanzi_value_page_uv"></span>
+          </span>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前段时间学习JDBC，要连接mysql获取数据。按照老师的样例数据，要存一些名字之类的信息，用的都是英文名，我当时就不太想用英文，就把我室友的名字存了进去，嘿嘿，结果，出问题了。</p>
+<a id="more"></a>
+<p><img src="/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/code1.png" alt=""></p>
+<p><img src="/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/code2.png" alt=""></p>
+<p>连接数据库语句：</p>
+<p><code>static final String DB_URL = &quot;jdbc:mysql://localhost/filemanagement&quot;;</code></p>
+<p>查询语句：</p>
+<p><code>private static final String theUserQuery = &quot;SELECT name, password, role FROM userinfo WHERE name = ?&quot;;</code></p>
+<p>我是用我的名字做的查询，NullPointerException，很明显，没有用我的名字查到对应的数据，而数据库中是存在的。这是为什么呢？</p>
+<p>百度到的答案是中文乱码导致的查询不到东西，解决方案是，修改连接数据库语句为：</p>
+<p><code>static final String DB_URL = &quot;jdbc:mysql://localhost/filemanagement?useUnicode=true&amp;characterEncoding=GBK&quot;;</code></p>
+<p>重试！</p>
+<p><img src="/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/code3.png" alt=""></p>
+<p>可以了！但这是为什么呢？那两个参数是什么？为什么加上之后就解决问题了？</p>
+<p>这两个参数解释如下:</p>
+<p><img src="/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/description.png" alt=""></p>
+<p>两个参数的缺省值都是false。也就是说我们在连接mysql的时候指定了连接使用的字符集后，一切就正常了。但我还是不太了解其中的机制，所以继续查。</p>
+<p>原来Mysql连接进行查询等操作时存在一个字符集转换过程：</p>
+<ol>
+<li>MySQL Server收到请求时将请求数据从character_set_client转换为character_set_connection；</li>
+<li>进行内部操作前将请求数据从character_set_connection转换为内部操作字符集，其确定方法如下：</li>
+</ol>
+<p>• 使用每个数据字段的CHARACTER SET设定值；</p>
+<p>• 若上述值不存在，则使用对应数据表的DEFAULT CHARACTER SET设定值(MySQL扩展，非SQL标准)；</p>
+<p>• 若上述值不存在，则使用对应数据库的DEFAULT CHARACTER SET设定值；</p>
+<p>• 若上述值不存在，则使用character_set_server设定值。</p>
+<ol>
+<li>将操作结果从内部操作字符集转换为character_set_results。</li>
+</ol>
+<p>这些character set代表什么呢？</p>
+<p><strong>character_set_server</strong>：默认的内部操作字符集</p>
+<p><strong>character_set_client</strong>：客户端来源数据使用的字符集</p>
+<p><strong>character_set_connection</strong>：连接层字符集</p>
+<p><strong>character_set_results</strong>：查询结果字符集</p>
+<p><strong>character_set_database</strong>：当前选中数据库的默认字符集</p>
+<p><strong>character_set_system</strong>：系统元数据(字段名等)字符集</p>
+<p>还查到了一些常见问题，虽然和我的问题不太一样，但很有参考意义。</p>
+<p>• 向默认字符集为utf8的数据表插入utf8编码的数据前没有设置连接字符集，查询时设置连接字符集为utf8</p>
+<p>– 插入时根据MySQL服务器的默认设置，character_set_client、character_set_connection和character_set_results均为latin1；</p>
+<p>– 插入操作的数据将经过latin1=&gt;latin1=&gt;utf8的字符集转换过程，这一过程中每个插入的汉字都会从原始的3个字节变成6个字节保存；</p>
+<p>– 查询时的结果将经过utf8=&gt;utf8的字符集转换过程，将保存的6个字节原封不动返回，产生乱码……</p>
+<p>• 向默认字符集为latin1的数据表插入utf8编码的数据前设置了连接字符集为utf8</p>
+<p>– 插入时根据连接字符集设置，character_set_client、character_set_connection和character_set_results均为utf8；</p>
+<p>– 插入数据将经过utf8=&gt;utf8=&gt;latin1的字符集转换，若原始数据中含有\u0000~\u00ff范围以外的Unicode字 符，会因为无法在latin1字符集中表示而被转换为“?”(0x3F)符号，以后查询时不管连接字符集设置如何都无法恢复其内容了。</p>
+<p>（此部分摘自鸟哥的blog，稍后附上链接）</p>
+<p>我数据库的表都是设置的utf8编码，但我第一次连接的时候没有设置连接字符集，所以默认为latin1，经过了从utf8=&gt;latin1的转换，所以产生乱码。我第二次用的GBK编码，也没用utf8编码，为什么也可以了呢？其实是一个道理，中文不在latin1的编码中可是在GBK和utf8中，所以不会出问题。</p>
+<p>到此为止所有的疑问都解开了，大家是否懂了呢？</p>
+<p>附上参考链接：</p>
+<p><a href="http://www.laruence.com/2008/01/05/12.html" target="_blank" rel="noopener"></a></p>
+<p><a href="http://m.blog.csdn.net/zhliro/article/details/45464375" target="_blank" rel="noopener"></a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -198,7 +278,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -211,17 +291,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/09/JDBC连接MySql获取中文内容时出现乱码的问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/12/09/64位windows的Dos中取消了edit命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">64位windows的Dos中取消了edit命令</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -249,10 +416,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
