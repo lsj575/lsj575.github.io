@@ -12,19 +12,19 @@
 <meta name="keywords" content="Java，JDBC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDBC 连接Mysqlll获取中文时出现的乱码问题">
-<meta property="og:url" content="http://yoursite.com/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/index.html">
 <meta property="og:site_name" content="龙思杰的个人博客">
 <meta property="og:description" content="前段时间学习JDBC，要连接mysql获取数据。按照老师的样例数据，要存一些名字之类的信息，用的都是英文名，我当时就不太想用英文，就把我室友的名字存了进去，嘿嘿，结果，出问题了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/code1.png">
-<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/code2.png">
-<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/code3.png">
-<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/description.png">
-<meta property="og:updated_time" content="2017-12-09T14:01:49.109Z">
+<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/code1.png">
+<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/code2.png">
+<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/code3.png">
+<meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/description.png">
+<meta property="og:updated_time" content="2017-12-09T14:20:47.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC 连接Mysqlll获取中文时出现的乱码问题">
 <meta name="twitter:description" content="前段时间学习JDBC，要连接mysql获取数据。按照老师的样例数据，要存一些名字之类的信息，用的都是英文名，我当时就不太想用英文，就把我室友的名字存了进去，嘿嘿，结果，出问题了。">
-<meta name="twitter:image" content="http://yoursite.com/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/code1.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/code1.png">
   
     <link rel="alternative" href="/atom.xml" title="龙思杰的个人博客" type="application/atom+xml">
   
@@ -164,7 +164,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JDBC-连接Mysqlll获取中文时出现的乱码问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JDBC-连接Mysql获取中文时出现的乱码问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -175,9 +175,8 @@
     </h1>
   
 
-        <span id="busuanzi_container_page_pv">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
         
-        <a href="/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/" class="archive-article-date">
+        <a href="/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/" class="archive-article-date">
   	<time datetime="2017-12-09T13:44:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
 </a>
         
@@ -191,8 +190,8 @@
       
         <p>前段时间学习JDBC，要连接mysql获取数据。按照老师的样例数据，要存一些名字之类的信息，用的都是英文名，我当时就不太想用英文，就把我室友的名字存了进去，嘿嘿，结果，出问题了。</p>
 <a id="more"></a>
-<p><img src="/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/code1.png" alt=""></p>
-<p><img src="/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/code2.png" alt=""></p>
+<p><img src="/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/code1.png" alt=""></p>
+<p><img src="/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/code2.png" alt=""></p>
 <p>连接数据库语句：</p>
 <p><code>static final String DB_URL = &quot;jdbc:mysql://localhost/filemanagement&quot;;</code></p>
 <p>查询语句：</p>
@@ -201,10 +200,10 @@
 <p>百度到的答案是中文乱码导致的查询不到东西，解决方案是，修改连接数据库语句为：</p>
 <p><code>static final String DB_URL = &quot;jdbc:mysql://localhost/filemanagement?useUnicode=true&amp;characterEncoding=GBK&quot;;</code></p>
 <p>重试！</p>
-<p><img src="/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/code3.png" alt=""></p>
+<p><img src="/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/code3.png" alt=""></p>
 <p>可以了！但这是为什么呢？那两个参数是什么？为什么加上之后就解决问题了？</p>
 <p>这两个参数解释如下:</p>
-<p><img src="/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/description.png" alt=""></p>
+<p><img src="/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/description.png" alt=""></p>
 <p>两个参数的缺省值都是false。也就是说我们在连接mysql的时候指定了连接使用的字符集后，一切就正常了。但我还是不太了解其中的机制，所以继续查。</p>
 <p>原来Mysql连接进行查询等操作时存在一个字符集转换过程：</p>
 <ol>
@@ -340,7 +339,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/09/JDBC-连接Mysqlll获取中文时出现的乱码问题/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/09/JDBC-连接Mysql获取中文时出现的乱码问题/" alt="微信分享二维码">
     </div>
 </div>
 
