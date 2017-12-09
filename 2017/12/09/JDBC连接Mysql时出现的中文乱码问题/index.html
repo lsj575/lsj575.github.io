@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC连接Mysql时出现的中文乱码问题/code2.png">
 <meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC连接Mysql时出现的中文乱码问题/code3.png">
 <meta property="og:image" content="http://yoursite.com/2017/12/09/JDBC连接Mysql时出现的中文乱码问题/description.png">
-<meta property="og:updated_time" content="2017-12-09T14:44:41.997Z">
+<meta property="og:updated_time" content="2017-12-09T14:57:49.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC连接Mysql时出现的中文乱码问题">
 <meta name="twitter:description" content="前段时间学习JDBC，要连接mysql获取数据。按照老师的样例数据，要存一些名字之类的信息，用的都是英文名，我当时就不太想用英文，就把我室友的名字存了进去，嘿嘿，结果，出问题了。">
@@ -235,6 +235,9 @@
 <p>（此部分摘自鸟哥的blog，稍后附上链接）</p>
 <p>我数据库的表都是设置的utf8编码，但我第一次连接的时候没有设置连接字符集，所以默认为latin1，经过了从utf8=&gt;latin1的转换，所以产生乱码。我第二次用的GBK编码，也没用utf8编码，为什么也可以了呢？其实是一个道理，中文不在latin1的编码中可是在GBK和utf8中，所以不会出问题。</p>
 <p>到此为止所有的疑问都解开了，大家是否懂了呢？</p>
+<p>附上参考博客链接：</p>
+<p><a href="http://www.laruence.com/2008/01/05/12.html" target="_blank" rel="noopener">http://www.laruence.com/2008/01/05/12.html</a></p>
+<p><a href="http://m.blog.csdn.net/zhliro/article/details/45464375" target="_blank" rel="noopener">http://m.blog.csdn.net/zhliro/article/details/45464375</a></p>
 
       
 
