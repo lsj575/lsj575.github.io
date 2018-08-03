@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: Windows相关 | 龙思杰的个人博客</title>
+  <title>MySQL 驱动包在6.0版本后出现的坑 | 龙思杰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="努力是奇迹的另一个名字">
-<meta property="og:type" content="website">
-<meta property="og:title" content="龙思杰的个人博客">
-<meta property="og:url" content="http://yoursite.com/categories/Windows相关/index.html">
+  <meta name="description" content="近段时间在复习JDBC时遇到了一些新的问题，写下此篇文章记录一下">
+<meta name="keywords" content="Java,JDBC,MySQL,JAR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL 驱动包在6.0版本后出现的坑">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/MySQL-驱动包在6-0版本后出现的坑/index.html">
 <meta property="og:site_name" content="龙思杰的个人博客">
-<meta property="og:description" content="努力是奇迹的另一个名字">
+<meta property="og:description" content="近段时间在复习JDBC时遇到了一些新的问题，写下此篇文章记录一下">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-03T06:58:15.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="龙思杰的个人博客">
-<meta name="twitter:description" content="努力是奇迹的另一个名字">
+<meta name="twitter:title" content="MySQL 驱动包在6.0版本后出现的坑">
+<meta name="twitter:description" content="近段时间在复习JDBC时遇到了一些新的问题，写下此篇文章记录一下">
   
     <link rel="alternative" href="/atom.xml" title="龙思杰的个人博客" type="application/atom+xml">
   
@@ -157,76 +159,211 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL-驱动包在6-0版本后出现的坑" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/09/64位windows的Dos中取消了edit命令/" class="archive-article-date">
-  	<time datetime="2017-12-09T13:01:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/09/64位windows的Dos中取消了edit命令/">64位windows的Dos中取消了edit命令</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL 驱动包在6.0版本后出现的坑
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/03/MySQL-驱动包在6-0版本后出现的坑/" class="archive-article-date">
+  	<time datetime="2018-08-03T06:00:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
+</a>
+        
+        
+          <span class="archive-article-date" id="busuanzi_container_page_pv">阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近段时间在复习JDBC时遇到了一些新的问题，写下此篇文章记录一下</p>
+<a id="more"></a>
+<h2 id="加载驱动的类在包内位置变更"><a href="#加载驱动的类在包内位置变更" class="headerlink" title="加载驱动的类在包内位置变更"></a>加载驱动的类在包内位置变更</h2><p>按往常一样写好连接数据库的方法之后导入的包是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.mysql.jdbc.Driver</span><br></pre></td></tr></table></figure>
+<p>运行之后报错</p>
+<blockquote>
+<p>Loading class <code>com.mysql.jdbc.Driver</code>. This is deprecated. The new driver class is <code>com.mysql.cj.jdbc.Driver</code>. The driver is automatically   registered via the SPI and manual loading of the driver class is generally unnecessary.</p>
+</blockquote>
+<p> 意思是说在<code>com.mysql.jdbc.Driver</code>下的类已经被弃用了，新的driver类在<code>com.mysql.cj.jdbc.Driver</code>下。</p>
+<p> 这是在6.0版本的驱动包后出现的，所以我们将路径改为新的路径即可。</p>
+<h2 id="新版本驱动在访问数据库时无法识别时区"><a href="#新版本驱动在访问数据库时无法识别时区" class="headerlink" title="新版本驱动在访问数据库时无法识别时区"></a>新版本驱动在访问数据库时无法识别时区</h2><p>报错信息为：</p>
+<blockquote>
+<p>Error querying database.  Cause: java.sql.SQLException: The server time zone value ‘�й���׼ʱ��’ is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.</p>
+</blockquote>
+<p>服务器的时区值 xxx 是无法试别或者代表了多个时区。</p>
+<p>用sql查看一下数据库时区</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">TIMEDIFF</span>(<span class="keyword">NOW</span>(), <span class="keyword">UTC_TIMESTAMP</span>);</span><br></pre></td></tr></table></figure>
+<p>如果是中国标准时间，会输出08:00</p>
+<blockquote>
+<p>+—————————————————-+<br>| TIMEDIFF(NOW(), UTC_TIMESTAMP) |<br>+—————————————————-+<br>| 08:00:00                                                |<br>+—————————————————-+</p>
+</blockquote>
+<p>解决方案有两个第一个是修改JDBC连接数据库时的url值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbc:mysql://localhost:3306/jdbctest?serverTimezone=UTC</span><br></pre></td></tr></table></figure>
+<p>添加一个<code>serverTimezone</code>的参数表明时区，UTC代表东八区。</p>
+<p>第二个方案是直接去修改数据库，输入</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> <span class="keyword">time_zone</span>=<span class="string">'+8:00'</span>;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>​</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Windows</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Dos</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Windows相关//" class="article-tag-list-link color5">Windows相关</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JAR</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/03/MySQL-驱动包在6-0版本后出现的坑/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/12/09/JDBC连接Mysql时出现的中文乱码问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JDBC连接Mysql时出现的中文乱码问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -254,10 +391,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
