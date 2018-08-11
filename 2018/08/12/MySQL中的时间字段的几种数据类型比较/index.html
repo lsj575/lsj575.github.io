@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="龙思杰的个人博客">
 <meta property="og:description" content="1.序言​    最近在项目开发时，对于MySQL数据库中的有关时间的字段该选用何种类型，引发了一些争论。所以做了一些简单的研究，看了一些blog，和官方文档。最后做出一个自己的总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-11T17:08:52.672Z">
+<meta property="og:updated_time" content="2018-08-11T17:19:47.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL中的时间字段的几种数据类型比较">
 <meta name="twitter:description" content="1.序言​    最近在项目开发时，对于MySQL数据库中的有关时间的字段该选用何种类型，引发了一些争论。所以做了一些简单的研究，看了一些blog，和官方文档。最后做出一个自己的总结。">
@@ -208,11 +208,11 @@
 <ul>
 <li><p>非分数部分的DATETIME编码（5.6.4版本之后）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> 1 bit  sign           (1= non-negative, 0= negative)</span><br><span class="line">17 bits year*13+month  (year 0-9999, month 0-12)</span><br><span class="line"> 5 bits day            (0-31)</span><br><span class="line"> 5 bits hour           (0-23)</span><br><span class="line"> 6 bits minute         (0-59)</span><br><span class="line"> 6 bits second         (0-59)</span><br><span class="line">---------------------------</span><br><span class="line">40 bits = 5 bytes</span><br></pre></td></tr></table></figure>
-<p>​Timestamp 节省的 1 字节是有代价的：你只能存储从 ‘1970-01-01 00:00:01.000000’ 到 ‘2038-01-19 03:14:07.999999’ 之间的时间。而 Datetime 允许你存储从 ‘1000-01-01 00:00:00.000000’ 到 ‘9999-12-31 23:59:59.999999’ 之间的任何时间。</p>
-<p>​另一个重要的差别是MySQL使用<strong>服务器的时区</strong>转换Timestamp值到它的 UTC 等价值再保存。当获取值是它会再次进行时区转换，所以你得回了你“原始的”日期/时间值。Datetime 列不会被数据库改变。无论时区怎样配置，每次都会保存和获取到同样的值。</p>
-<p>​在5.6版本之后，datetime开始可以使用current time作为默认值，所以不再有timestamp比datetime更适合作为需要随插入和更新来变更时间的类型的说法。</p>
 </li>
 </ul>
+<p>Timestamp 节省的 1 字节是有代价的：你只能存储从 ‘1970-01-01 00:00:01.000000’ 到 ‘2038-01-19 03:14:07.999999’ 之间的时间。而 Datetime 允许你存储从 ‘1000-01-01 00:00:00.000000’ 到 ‘9999-12-31 23:59:59.999999’ 之间的任何时间。</p>
+<p>另一个重要的差别是MySQL使用<strong>服务器的时区</strong>转换Timestamp值到它的 UTC 等价值再保存。当获取值是它会再次进行时区转换，所以你得回了你“原始的”日期/时间值。Datetime 列不会被数据库改变。无论时区怎样配置，每次都会保存和获取到同样的值。</p>
+<p>在5.6版本之后，datetime开始可以使用current time作为默认值，所以不再有timestamp比datetime更适合作为需要随插入和更新来变更时间的类型的说法。</p>
 <p><strong>结论：</strong>Datetime 是大多数场景下的最佳选择，理由是</p>
 <blockquote>
 <p>无需任何转换即是人类可读的。</p>
