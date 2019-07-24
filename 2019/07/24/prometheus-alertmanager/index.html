@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/12 | 龙思杰的个人博客</title>
+  <title>prometheus_alertmanager | 龙思杰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="努力是奇迹的另一个名字">
-<meta property="og:type" content="website">
-<meta property="og:title" content="龙思杰的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/12/index.html">
+  <meta name="description" content="​        Alertmanager处理客户端应用程序（如Prometheus服务器）发送的警报。 它负责对它们进行重复数据删除，分组和路由，以及正确的接收器集成，例如电子邮件，PagerDuty或OpsGenie。 它还负责警报的静音和抑制。">
+<meta name="keywords" content="Kubernetes,Prometheus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="prometheus_alertmanager">
+<meta property="og:url" content="http://yoursite.com/2019/07/24/prometheus-alertmanager/index.html">
 <meta property="og:site_name" content="龙思杰的个人博客">
-<meta property="og:description" content="努力是奇迹的另一个名字">
+<meta property="og:description" content="​        Alertmanager处理客户端应用程序（如Prometheus服务器）发送的警报。 它负责对它们进行重复数据删除，分组和路由，以及正确的接收器集成，例如电子邮件，PagerDuty或OpsGenie。 它还负责警报的静音和抑制。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/prometheus-alertmanager/monitoring.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/prometheus-alertmanager/添加Incomming%20webhook.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/prometheus-alertmanager/slack%20demo.png">
+<meta property="og:updated_time" content="2019-07-24T02:20:16.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="龙思杰的个人博客">
-<meta name="twitter:description" content="努力是奇迹的另一个名字">
+<meta name="twitter:title" content="prometheus_alertmanager">
+<meta name="twitter:description" content="​        Alertmanager处理客户端应用程序（如Prometheus服务器）发送的警报。 它负责对它们进行重复数据删除，分组和路由，以及正确的接收器集成，例如电子邮件，PagerDuty或OpsGenie。 它还负责警报的静音和抑制。">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/24/prometheus-alertmanager/monitoring.png">
   
     <link rel="alternative" href="/atom.xml" title="龙思杰的个人博客" type="application/atom+xml">
   
@@ -157,130 +163,245 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-prometheus-alertmanager" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/09/JDBC连接Mysql时出现的中文乱码问题/" class="archive-article-date">
-  	<time datetime="2017-12-09T14:41:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/09/JDBC连接Mysql时出现的中文乱码问题/">JDBC连接Mysql时出现的中文乱码问题</a>
+    <h1 class="article-title" itemprop="name">
+      prometheus_alertmanager
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/24/prometheus-alertmanager/" class="archive-article-date">
+  	<time datetime="2019-07-24T01:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
+</a>
+        
+        
+          <span class="archive-article-date" id="busuanzi_container_page_pv">阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​        Alertmanager处理客户端应用程序（如Prometheus服务器）发送的警报。 它负责对它们进行重复数据删除，分组和路由，以及正确的接收器集成，例如电子邮件，PagerDuty或OpsGenie。 它还负责警报的静音和抑制。</p>
+<a id="more"></a>
+<h2 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h2><h3 id="获取二进制包"><a href="#获取二进制包" class="headerlink" title="获取二进制包"></a>获取二进制包</h3><p>Alertmanager最新版本的下载地址可以从Prometheus官方网站<a href="https://prometheus.io/download/获取。" target="_blank" rel="noopener">https://prometheus.io/download/获取。</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export VERSION=0.18.0</span><br><span class="line">wget https://github.com/prometheus/alertmanager/releases/download/v$VERSION/alertmanager-$VERSION.linux-amd64.tar.gz</span><br><span class="line">tar xvf alertmanager-$VERSION.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd alertmanager-$VERSION.darwin-amd64</span><br><span class="line">./alertmanager --config.file=simple.yml # 默认加载alertmanager.yml文件配置</span><br></pre></td></tr></table></figure>
+<h3 id="获取docker镜像"><a href="#获取docker镜像" class="headerlink" title="获取docker镜像"></a>获取docker镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull docker.io/prometheus/alertmanager</span><br></pre></td></tr></table></figure>
+<h4 id="启动-1"><a href="#启动-1" class="headerlink" title="启动"></a>启动</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 9093:9093 -v /本地目录/alertmanager.yml:/etc/alertmanager/config.yml --name alertmanager docker.io/prom/alertmanager --config.file=/etc/alertmanager/config.yml</span><br></pre></td></tr></table></figure>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
+<li>全局配置（global）：用于定义一些全局的公共参数，如全局的SMTP配置，Slack配置等内容；</li>
+<li>模板（templates）：用于定义告警通知时的模板，如HTML模板，邮件模板等；</li>
+<li>告警路由（route）：根据标签匹配，确定当前告警应该如何处理；</li>
+<li>接收人（receivers）：接收人是一个抽象的概念，它可以是一个邮箱也可以是微信，Slack或者Webhook等，接收人一般配合告警路由使用；</li>
+<li>抑制规则（inhibit_rules）：合理设置抑制规则可以减少垃圾告警的产生</li>
+</ul>
+<p>完整配置格式如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line">  <span class="string">[</span> <span class="attr">resolve_timeout:</span> <span class="string">&lt;duration&gt;</span> <span class="string">| default = 5m ]</span></span><br><span class="line"><span class="string">  [ smtp_from: &lt;tmpl_string&gt; ] </span></span><br><span class="line"><span class="string">  [ smtp_smarthost: &lt;string&gt; ] </span></span><br><span class="line"><span class="string">  [ smtp_hello: &lt;string&gt; | default = "localhost" ]</span></span><br><span class="line"><span class="string">  [ smtp_auth_username: &lt;string&gt; ]</span></span><br><span class="line"><span class="string">  [ smtp_auth_password: &lt;secret&gt; ]</span></span><br><span class="line"><span class="string">  [ smtp_auth_identity: &lt;string&gt; ]</span></span><br><span class="line"><span class="string">  [ smtp_auth_secret: &lt;secret&gt; ]</span></span><br><span class="line"><span class="string">  [ smtp_require_tls: &lt;bool&gt; | default = true ]</span></span><br><span class="line"><span class="string">  [ slack_api_url: &lt;secret&gt; ]</span></span><br><span class="line"><span class="string">  [ victorops_api_key: &lt;secret&gt; ]</span></span><br><span class="line"><span class="string">  [ victorops_api_url: &lt;string&gt; | default = "https://alert.victorops.com/integrations/generic/20131114/alert/" ]</span></span><br><span class="line"><span class="string">  [ pagerduty_url: &lt;string&gt; | default = "https://events.pagerduty.com/v2/enqueue" ]</span></span><br><span class="line"><span class="string">  [ opsgenie_api_key: &lt;secret&gt; ]</span></span><br><span class="line"><span class="string">  [ opsgenie_api_url: &lt;string&gt; | default = "https://api.opsgenie.com/" ]</span></span><br><span class="line"><span class="string">  [ hipchat_api_url: &lt;string&gt; | default = "https://api.hipchat.com/" ]</span></span><br><span class="line"><span class="string">  [ hipchat_auth_token: &lt;secret&gt; ]</span></span><br><span class="line"><span class="string">  [ wechat_api_url: &lt;string&gt; | default = "https://qyapi.weixin.qq.com/cgi-bin/" ]</span></span><br><span class="line"><span class="string">  [ wechat_api_secret: &lt;secret&gt; ]</span></span><br><span class="line"><span class="string">  [ wechat_api_corp_id: &lt;string&gt; ]</span></span><br><span class="line"><span class="string">  [ http_config: &lt;http_config&gt; ]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span><span class="attr">templates:</span></span><br><span class="line">  <span class="string">[</span> <span class="bullet">-</span> <span class="string">&lt;filepath&gt;</span> <span class="string">...</span> <span class="string">]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">route:</span> <span class="string">&lt;route&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">receivers:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">&lt;receiver&gt;</span> <span class="string">...</span></span><br><span class="line"></span><br><span class="line"><span class="attr">inhibit_rules:</span></span><br><span class="line">  <span class="string">[</span> <span class="bullet">-</span> <span class="string">&lt;inhibit_rule&gt;</span> <span class="string">...</span> <span class="string">]</span></span><br></pre></td></tr></table></figure>
+<p>在全局配置中需要注意的是<code>resolve_timeout</code>，该参数定义了当Alertmanager持续多长时间未接收到告警后标记告警状态为resolved（已解决）。该参数的定义可能会影响到告警恢复通知的接收时间，可根据自己的实际场景进行定义，其默认值为5分钟。</p>
+<h3 id="基于标签的告警处理路由"><a href="#基于标签的告警处理路由" class="headerlink" title="基于标签的告警处理路由"></a>基于标签的告警处理路由</h3><p>在Alertmanager的配置中会定义一个基于标签匹配规则的告警路由树，以确定在接收到告警后Alertmanager需要如何对其进行处理：</p>
+<p><code>route: &lt;route&gt;</code></p>
+<p>route中主要定义了告警路由的匹配规则，以及Alertmanager需要将匹配到的告警发送给哪个receiver</p>
+<p>简单的route定义示例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">route:</span></span><br><span class="line"><span class="attr">  group_by:</span> <span class="string">['alertname']</span></span><br><span class="line"><span class="attr">  receiver:</span> <span class="string">'web.hook'</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">receivers:</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">'web.hook'</span></span><br><span class="line"><span class="attr">  webhook_configs:</span></span><br><span class="line"><span class="attr">  - url:</span> <span class="string">'http://127.0.0.1:5001/'</span></span><br></pre></td></tr></table></figure>
+<p>在上面的Alertmanager配置文件中，只定义了一个路由，那就意味着所有由Prometheus产生的告警在发送到Alertmanager之后都会通过名为web.hook的receiver接收。这里的web.hook定义为一个webhook地址。</p>
+<p>在实际场景下，告警处理没有这么简单，所以我们可以在route中，定义更多的子route，这些route通过标签匹配告警的处理方式。</p>
+<p>route的完整定义如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[</span> <span class="attr">receiver:</span> <span class="string">&lt;string&gt;</span> <span class="string">]</span></span><br><span class="line"><span class="string">[</span> <span class="attr">group_by:</span> <span class="string">'['</span> <span class="string">&lt;labelname&gt;,</span> <span class="string">...</span> <span class="string">']'</span> <span class="string">]</span></span><br><span class="line"><span class="string">[</span> <span class="attr">continue:</span> <span class="string">&lt;boolean&gt;</span> <span class="string">| default = false ]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span><span class="attr">match:</span></span><br><span class="line">  <span class="string">[</span> <span class="string">&lt;labelname&gt;:</span> <span class="string">&lt;labelvalue&gt;,</span> <span class="string">...</span> <span class="string">]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">match_re:</span></span><br><span class="line">  <span class="string">[</span> <span class="string">&lt;labelname&gt;:</span> <span class="string">&lt;regex&gt;,</span> <span class="string">...</span> <span class="string">]</span></span><br><span class="line"></span><br><span class="line"><span class="string">[</span> <span class="attr">group_wait:</span> <span class="string">&lt;duration&gt;</span> <span class="string">| default = 30s ]</span></span><br><span class="line"><span class="string">[ group_interval: &lt;duration&gt; | default = 5m ]</span></span><br><span class="line"><span class="string">[ repeat_interval: &lt;duration&gt; | default = 4h ]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span><span class="attr">routes:</span></span><br><span class="line">  <span class="string">[</span> <span class="bullet">-</span> <span class="string">&lt;route&gt;</span> <span class="string">...</span> <span class="string">]</span></span><br></pre></td></tr></table></figure>
+<p>每一个告警都会从配置文件中顶级route进入路由树，<strong>顶级route必须匹配所有告警（即不能有任何的匹配设置：match、match_re</strong>，每一个route都可以定义自己的receiver以及匹配规则。默认情况下，告警进入顶级route后会遍历所有的子节点，直到找到最深的匹配route，并将告警发送到route定义的receiver中。<strong>如何route中设置continue为false，那么告警在匹配到第一个子节点之后就直接停止。</strong>如何当前告警匹配不到任何的子节点，那该告警将会基于当前路由节点的receiver配置方式进行处理。</p>
+<h4 id="match与match-re"><a href="#match与match-re" class="headerlink" title="match与match_re"></a>match与match_re</h4><p>告警的匹配有两种方式可以选择。一种方式基于字符串验证，通过设置<strong>match</strong>规则判断当前告警中是否存在标签labelname并且其值等于labelvalue。第二种方式则基于正则表达式，通过设置<strong>match_re</strong>验证当前告警标签的值是否满足正则表达式的内容。</p>
+<h4 id="repeat-interval"><a href="#repeat-interval" class="headerlink" title="repeat_interval"></a>repeat_interval</h4><p>如果警报已经成功发送通知, 如果想设置发送告警通知之前要等待时间，则可以通过<strong>repeat_interval</strong>参数进行设置。</p>
+<h4 id="group-by"><a href="#group-by" class="headerlink" title="group_by"></a>group_by</h4><p>Alertmanager可以对告警通知进行分组，将多条告警合合并为一个通知。可以使用<strong>group_by</strong>来定义分组规则。基于告警中包含的标签，如果满足<strong>group_by</strong>中定义标签名称，那么这些告警将会合并为一个通知发送给接收器。</p>
+<h4 id="group-wait"><a href="#group-wait" class="headerlink" title="group_wait"></a>group_wait</h4><p>有的时候为了能够一次性收集和发送更多的相关信息时，可以通过<strong>group_wait</strong>参数设置等待时间，如果在等待时间内当前group接收到了新的告警，这些告警将会合并为一个通知向receiver发送。</p>
+<h4 id="group-interval"><a href="#group-interval" class="headerlink" title="group_interval"></a>group_interval</h4><p>用于定义相同的Gourp之间发送告警通知的时间间隔。</p>
+<h3 id="抑制机制（inhibit-rules"><a href="#抑制机制（inhibit-rules" class="headerlink" title="抑制机制（inhibit_rules)"></a>抑制机制（inhibit_rules)</h3><p>Alertmanager的抑制机制可以避免当某种问题告警产生之后用户接收到大量由此问题导致的一系列的其它告警通知。</p>
+<p>参考：<a href="https://yunlzheng.gitbook.io/prometheus-book/parti-prometheus-ji-chu/alert/alert-manager-inhibit" target="_blank" rel="noopener">抑制机制</a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">route:</span></span><br><span class="line"><span class="attr">  receiver:</span> <span class="string">'default-receiver'</span></span><br><span class="line"><span class="attr">  group_wait:</span> <span class="number">30</span><span class="string">s</span></span><br><span class="line"><span class="attr">  group_interval:</span> <span class="number">5</span><span class="string">m</span></span><br><span class="line"><span class="attr">  repeat_interval:</span> <span class="number">4</span><span class="string">h</span></span><br><span class="line"><span class="attr">  group_by:</span> <span class="string">[cluster,</span> <span class="string">alertname]</span></span><br><span class="line"><span class="attr">  routes:</span></span><br><span class="line"><span class="attr">  - receiver:</span> <span class="string">'database-pager'</span></span><br><span class="line"><span class="attr">    group_wait:</span> <span class="number">10</span><span class="string">s</span></span><br><span class="line"><span class="attr">    match_re:</span></span><br><span class="line"><span class="attr">      service:</span> <span class="string">mysql|cassandra</span></span><br><span class="line"><span class="attr">  - receiver:</span> <span class="string">'frontend-pager'</span></span><br><span class="line"><span class="attr">    group_by:</span> <span class="string">[product,</span> <span class="string">environment]</span></span><br><span class="line"><span class="attr">    match:</span></span><br><span class="line"><span class="attr">      team:</span> <span class="string">frontend</span></span><br></pre></td></tr></table></figure>
+<p>默认情况下所有的告警都会发送给集群管理员default-receiver，因此在Alertmanager的配置文件的根路由中，对告警信息按照集群以及告警的名称对告警进行分组。</p>
+<p>如果告警时来源于数据库服务如MySQL或者Cassandra，此时则需要将告警发送给相应的数据库管理员(database-pager)。这里定义了一个单独子路由，如果告警中包含service标签，并且service为MySQL或者Cassandra,则向database-pager发送告警通知，由于这里没有定义group_by等属性，这些属性的配置信息将从上级路由继承，database-pager将会接收到按cluser和alertname进行分组的告警通知。</p>
+<p>而某些告警规则来源可能来源于开发团队的定义，这些告警中通过添加标签team来标示这些告警的创建者。在Alertmanager配置文件的告警路由下，定义单独子路由用于处理这一类的告警通知，如果匹配到告警中包含标签team，并且team的值为frontend，Alertmanager将会按照标签product和environment对告警进行分组。此时如果应用出现异常，开发团队就能清楚的知道哪一个环境(environment)中的哪一个应用程序出现了问题，可以快速对应用进行问题定位。</p>
+<h2 id="接入slack"><a href="#接入slack" class="headerlink" title="接入slack"></a>接入slack</h2><ol>
+<li>最好使用一个单独的slack channel来接收报警信息</li>
+</ol>
+<p><img src="/2019/07/24/prometheus-alertmanager/monitoring.png" alt="img"></p>
+<ol>
+<li>在channel中添加应用：Incomming Webhooks</li>
+<li>为了能够在Monitoring中接收来自Alertmanager的消息，我们需要在Channel的设置选项中使用”Add an App”为Monitoring channel添加一个名为<code>Incoming WebHooks</code>的应用：</li>
+</ol>
+<p><img src="/2019/07/24/prometheus-alertmanager/添加Incomming webhook.png" alt="img"></p>
+<p>添加成功后Slack会显示<code>Incoming WebHooks</code>配置和使用方式，支持修改消息头像、名字，添加链接，普通文本等</p>
+<h3 id="Alertmanager配置"><a href="#Alertmanager配置" class="headerlink" title="Alertmanager配置"></a>Alertmanager配置</h3><p>在Alertmanager的全局配置中，将Incomming Webhhook地址作为slack_api_url添加到全局配置中</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line"><span class="attr">  slack_api_url:</span> <span class="attr">https://hooks.slack.com/services/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</span></span><br></pre></td></tr></table></figure>
+<p>也可以在每个receiver中单独定义自己的slack_configs：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">receivers：</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">slack</span></span><br><span class="line"><span class="attr">  slack_configs:</span></span><br><span class="line"><span class="attr">    - channel:</span> <span class="string">'#monitoring'</span></span><br><span class="line"><span class="attr">      send_resolved:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>对于Incomming Webhook支持的自定义参数有：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">channel:</span> <span class="string">&lt;tmpl_string&gt;</span></span><br><span class="line"><span class="string">[</span> <span class="attr">send_resolved:</span> <span class="string">&lt;boolean&gt;</span> <span class="string">| default = false ]</span></span><br><span class="line"><span class="string">[ api_url: &lt;secret&gt; | default = global.slack_api_url ]  # webhook url</span></span><br><span class="line"><span class="string">[ icon_emoji: &lt;tmpl_string&gt; ]  # 机器人图标 emoji方式</span></span><br><span class="line"><span class="string">[ icon_url: &lt;tmpl_string&gt; ]  # 机器人图标 图片url方式</span></span><br><span class="line"><span class="string">[ link_names: &lt;boolean&gt; | default = false ]</span></span><br><span class="line"><span class="string">[ username: &lt;tmpl_string&gt; | default = '<span class="template-variable">&#123;&#123; template "slack.default.username" . &#125;&#125;</span>' ]</span></span><br><span class="line"><span class="string">[ color: &lt;tmpl_string&gt; | default = '<span class="template-variable">&#123;&#123; if eq .Status "firing" &#125;&#125;</span>danger<span class="template-variable">&#123;&#123; else &#125;&#125;</span>good<span class="template-variable">&#123;&#123; end &#125;&#125;</span>' ]</span></span><br><span class="line"><span class="string">[ footer: &lt;tmpl_string&gt; | default = '<span class="template-variable">&#123;&#123; template "slack.default.footer" . &#125;&#125;</span>' ]</span></span><br><span class="line"><span class="string">[ pretext: &lt;tmpl_string&gt; | default = '<span class="template-variable">&#123;&#123; template "slack.default.pretext" . &#125;&#125;</span>' ]</span></span><br><span class="line"><span class="string">[ text: &lt;tmpl_string&gt; | default = '<span class="template-variable">&#123;&#123; template "slack.default.text" . &#125;&#125;</span>' ]  # 告警信息文本</span></span><br><span class="line"><span class="string">[ title: &lt;tmpl_string&gt; | default = '<span class="template-variable">&#123;&#123; template "slack.default.title" . &#125;&#125;</span>' ]</span></span><br><span class="line"><span class="string">[ title_link: &lt;tmpl_string&gt; | default = '<span class="template-variable">&#123;&#123; template "slack.default.titlelink" . &#125;&#125;</span>' ]</span></span><br><span class="line"><span class="string">[ image_url: &lt;tmpl_string&gt; ]</span></span><br><span class="line"><span class="string">[ thumb_url: &lt;tmpl_string&gt; ]</span></span><br></pre></td></tr></table></figure>
+<p>更多参数说明参考：<a href="https://api.slack.com/docs/message-attachments" target="_blank" rel="noopener">Incomming Webhook参数说明</a></p>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><p>alertmanager配置文件：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line"><span class="attr">  resolve_timeout:</span> <span class="number">5</span><span class="string">m</span> <span class="comment"># 处理超时时间，默认为5min</span></span><br><span class="line"><span class="attr">  slack_api_url:</span> <span class="attr">https://hooks.slack.com/services/TLB8USBMH/BLR1DBQES/DZ0QBBr9QaC**********</span></span><br><span class="line"></span><br><span class="line"><span class="attr">route:</span></span><br><span class="line"><span class="attr">  group_by:</span> <span class="string">['alertname']</span></span><br><span class="line"><span class="attr">  group_wait:</span> <span class="number">10</span><span class="string">s</span></span><br><span class="line"><span class="attr">  group_interval:</span> <span class="number">10</span><span class="string">s</span></span><br><span class="line"><span class="attr">  repeat_interval:</span> <span class="number">1</span><span class="string">m</span></span><br><span class="line"><span class="attr">  receiver:</span> <span class="string">'slack'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">receivers:</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">'slack'</span></span><br><span class="line"><span class="attr">  slack_configs:</span></span><br><span class="line"><span class="attr">  - channel:</span> <span class="string">'#monitoring'</span></span><br><span class="line"><span class="attr">    send_resolved:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    username:</span> <span class="string">'cdn_monitor_center'</span></span><br></pre></td></tr></table></figure>
+<p>会收到如下图片所示告警</p>
+<p><img src="/2019/07/24/prometheus-alertmanager/slack demo.png" alt="img"></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Kubernetes</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Prometheus</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
+        			<a href="/categories/监控//" class="article-tag-list-link color3">监控</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/24/prometheus-alertmanager/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/09/64位windows的Dos中取消了edit命令/" class="archive-article-date">
-  	<time datetime="2017-12-09T13:01:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/17/Shell/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Shell</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/09/64位windows的Dos中取消了edit命令/">64位windows的Dos中取消了edit命令</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Windows</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Dos</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Windows相关//" class="article-tag-list-link color5">Windows相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -308,8 +429,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

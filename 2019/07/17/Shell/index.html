@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/12 | 龙思杰的个人博客</title>
+  <title>Shell | 龙思杰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="努力是奇迹的另一个名字">
-<meta property="og:type" content="website">
-<meta property="og:title" content="龙思杰的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/12/index.html">
+  <meta name="description" content="Shell基础知识">
+<meta name="keywords" content="Linux,Shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell">
+<meta property="og:url" content="http://yoursite.com/2019/07/17/Shell/index.html">
 <meta property="og:site_name" content="龙思杰的个人博客">
-<meta property="og:description" content="努力是奇迹的另一个名字">
+<meta property="og:description" content="Shell基础知识">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-17T08:06:00.084Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="龙思杰的个人博客">
-<meta name="twitter:description" content="努力是奇迹的另一个名字">
+<meta name="twitter:title" content="Shell">
+<meta name="twitter:description" content="Shell基础知识">
   
     <link rel="alternative" href="/atom.xml" title="龙思杰的个人博客" type="application/atom+xml">
   
@@ -157,130 +159,322 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Shell" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/09/JDBC连接Mysql时出现的中文乱码问题/" class="archive-article-date">
-  	<time datetime="2017-12-09T14:41:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/09/JDBC连接Mysql时出现的中文乱码问题/">JDBC连接Mysql时出现的中文乱码问题</a>
+    <h1 class="article-title" itemprop="name">
+      Shell
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/17/Shell/" class="archive-article-date">
+  	<time datetime="2019-07-17T01:59:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
+</a>
+        
+        
+          <span class="archive-article-date" id="busuanzi_container_page_pv">阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Shell是一个用C语言编写的程序，既是一种命令语言，也是一种程序设计语言。</p>
+<p>Shell是指一种应用程序，这个应用程序提供一个界面，用户通过这个界面访问操作系统内核的服务</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="Shell环境"><a href="#Shell环境" class="headerlink" title="Shell环境"></a>Shell环境</h2><p>Shell编程与PHP编程一样，只需要一个能编写代码 的文本编辑器和一个能解释执行的脚本解释器。</p>
+<h3 id="Shell的种类"><a href="#Shell的种类" class="headerlink" title="Shell的种类"></a>Shell的种类</h3><ul>
+<li>Bourne Shell (/usr/bin/sh或/bin/sh)</li>
+<li>Bourne Again Shell (/bin/bash)</li>
+<li>C Shell (/usr/bin/csh)</li>
+<li>K Shell (/usr/bin/ksh)</li>
+<li>Shell for Root (/sbin/sh)</li>
+<li>……</li>
+</ul>
+<p>本篇主要使用Bash说明。由于其易用和免费，在日常工作中广泛被使用。同时Bash也是大多数Linux系统默认的Shell</p>
+<p><strong>Shell脚本的开头通常有个<code>#!</code>用来告诉系统其后路径所指定的程序即是解释此脚本文件的Shell程序</strong></p>
+<h2 id="运行脚本的两种方式"><a href="#运行脚本的两种方式" class="headerlink" title="运行脚本的两种方式"></a>运行脚本的两种方式</h2><h3 id="1-作为可执行程序"><a href="#1-作为可执行程序" class="headerlink" title="1. 作为可执行程序"></a>1. 作为可执行程序</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./test.sh # 使脚本具有执行权限</span><br><span class="line">./test.sh # 执行脚本</span><br></pre></td></tr></table></figure>
+<p><strong>注意，一定要写成<code>./test.sh</code>，而不是test.sh，运行其它二进制程序也一样，直接写test.sh，linux系统回去PATH里寻找有没有叫test.sh，而只有/bin，/sbin，/usr/sbin等在PATH里，你的当前目录通常不在PATH里，所以写成test.sh是会找不到命令的</strong></p>
+<h3 id="2-作为解释器参数"><a href="#2-作为解释器参数" class="headerlink" title="2. 作为解释器参数"></a>2. 作为解释器参数</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/sh test.sh</span><br></pre></td></tr></table></figure>
+<h2 id="Shell变量"><a href="#Shell变量" class="headerlink" title="Shell变量"></a>Shell变量</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><code>name=&quot;lsj&quot;</code></p>
+<p><strong>注意，变量名和等号之间不能有空格。变量命名须遵循如下规则</strong></p>
+<ul>
+<li>命名只能使用英文字母，数字和下划线</li>
+<li>中间不能有空格，可以使用下划线(_)</li>
+<li>不能使用标点符号</li>
+<li>不能使用bash里的关键字（可用help命令查看保留关键字）</li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>使用一个定义过的变量，只要在变量前加美元符号即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo $name</span><br><span class="line">echo $&#123;name&#125;</span><br></pre></td></tr></table></figure>
+<p>变量名外的花括号可选</p>
+<h4 id="只读变量"><a href="#只读变量" class="headerlink" title="只读变量"></a>只读变量</h4><p>使用readonly命令可以将变量定义为只读变量，只读变量的值不能被改变</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">url="https://lsj575.github.io"</span><br><span class="line">readonly url</span><br><span class="line">url="https://www.google.com"</span><br></pre></td></tr></table></figure>
+<h4 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h4><p>使用unset命令可以删除变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unset variable_name</span><br></pre></td></tr></table></figure>
+<p><strong>unset命令不能删除只读变量</strong></p>
+<h4 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h4><ul>
+<li><strong>局部变量</strong> 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。</li>
+<li><strong>环境变量</strong> 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。</li>
+<li><strong>shell变量</strong> shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行</li>
+</ul>
+<h3 id="Shell字符串"><a href="#Shell字符串" class="headerlink" title="Shell字符串"></a>Shell字符串</h3><p>字符串可以用单引号、双引号，也可以不用引号。单双引号的区别跟PHP类似</p>
+<h4 id="单引号"><a href="#单引号" class="headerlink" title="单引号"></a>单引号</h4><p><code>str=&#39;this is a string&#39;</code></p>
+<p>单引号字符串的限制：</p>
+<ul>
+<li>单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；</li>
+<li>单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用。</li>
+</ul>
+<h4 id="双引号"><a href="#双引号" class="headerlink" title="双引号"></a>双引号</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name='lsj'</span><br><span class="line">str="Hello, I know you are $&#123;name&#125;! \n"</span><br><span class="line">echo -e $str</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, I know you are lsj!</span><br></pre></td></tr></table></figure>
+<p>双引号的优点：</p>
+<ul>
+<li>双引号里可以有变量</li>
+<li>双引号里可以出现转义字符</li>
+</ul>
+<h4 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string="abcd"</span><br><span class="line">echo $&#123;#string&#125; # 输出 4</span><br></pre></td></tr></table></figure>
+<h4 id="提取子字符串"><a href="#提取子字符串" class="headerlink" title="提取子字符串"></a>提取子字符串</h4><p>从字符串第二个字符开始截取5个字符</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str="lsj is a great man"</span><br><span class="line">echo $&#123;string:1:5&#125; # 输出 sj is</span><br></pre></td></tr></table></figure>
+<h3 id="Shell数组"><a href="#Shell数组" class="headerlink" title="Shell数组"></a>Shell数组</h3><p>bash只支持一维数组，从下标0开始，下标可以是整数或算数表达式</p>
+<h4 id="定义数组"><a href="#定义数组" class="headerlink" title="定义数组"></a>定义数组</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr=(v1 v2 v3)</span><br></pre></td></tr></table></figure>
+<p>可以单独定义数组的各个分量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">array_name[0]=value0</span><br><span class="line">array_name[1]=value1</span><br><span class="line">array_name[n]=valuen</span><br></pre></td></tr></table></figure>
+<h4 id="读取数组"><a href="#读取数组" class="headerlink" title="读取数组"></a>读取数组</h4><p><code>${数组名[下标]}</code></p>
+<p>使用@符号可以获取数组中的所有元素</p>
+<h4 id="获取数组的长度"><a href="#获取数组的长度" class="headerlink" title="获取数组的长度"></a>获取数组的长度</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 取得数组元素的个数</span><br><span class="line">length=$&#123;#array_name[@]&#125;</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line">length=$&#123;#array_name[*]&#125;</span><br><span class="line"><span class="meta">#</span> 取得数组单个元素的长度</span><br><span class="line">lengthn=$&#123;#array_name[n]&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Shell注释"><a href="#Shell注释" class="headerlink" title="Shell注释"></a>Shell注释</h3><p>以 <code>#</code>开头的行就是注释，会被解释器忽略。</p>
+<h4 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:&lt;&lt;EOF</span><br><span class="line">注释内容...</span><br><span class="line">注释内容...</span><br><span class="line">注释内容...</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>EOF 也可以使用其他符号:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">:&lt;&lt;'</span><br><span class="line">注释内容...</span><br><span class="line">注释内容...</span><br><span class="line">注释内容...</span><br><span class="line">'</span><br><span class="line"></span><br><span class="line">:&lt;&lt;!</span><br><span class="line">注释内容...</span><br><span class="line">注释内容...</span><br><span class="line">注释内容...</span><br><span class="line">!</span><br></pre></td></tr></table></figure>
+<h2 id="Shell传递脚本"><a href="#Shell传递脚本" class="headerlink" title="Shell传递脚本"></a>Shell传递脚本</h2><p>执行Shell脚本时，可以向脚本传递参数，脚本内获取参数的格式为：<code>$n</code>。n代表一个数字，1为执行脚本的第一个参数，2位第二个，以此类推</p>
+<h3 id="处理参数的特殊字符"><a href="#处理参数的特殊字符" class="headerlink" title="处理参数的特殊字符"></a>处理参数的特殊字符</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">参数处理</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">$#</td>
+<td style="text-align:left">传递到脚本的参数个数</td>
+</tr>
+<tr>
+<td style="text-align:left">$*</td>
+<td style="text-align:left">以一个单字符串显示所有向脚本传递的参数。 如”\$*”用「”」括起来的情况、以”\$1 \$2 … $n”的形式输出所有参数。</td>
+</tr>
+<tr>
+<td style="text-align:left">$$</td>
+<td style="text-align:left">脚本运行的当前进程ID号</td>
+</tr>
+<tr>
+<td style="text-align:left">$!</td>
+<td style="text-align:left">后台运行的最后一个进程的ID号</td>
+</tr>
+<tr>
+<td style="text-align:left">$@</td>
+<td style="text-align:left">与\$*相同，但是使用时加引号，并在引号中返回每个参数。 如”​\$@”用「”」括起来的情况、以”\$1” “\$2” … “$n” 的形式输出所有参数。</td>
+</tr>
+<tr>
+<td style="text-align:left">$-</td>
+<td style="text-align:left">显示Shell使用的当前选项，与set命令功能相同。</td>
+</tr>
+<tr>
+<td style="text-align:left">$?</td>
+<td style="text-align:left">显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</td>
+</tr>
+</tbody>
+</table>
+<p>$* 与 $@ 区别：</p>
+<ul>
+<li>相同点：都是引用所有参数。</li>
+<li>不同点：只有在双引号中体现出来。假设在脚本运行时写了三个参数 1、2、3，，则 “ * “ 等价于 “1 2 3”（传递了一个参数），而 “@” 等价于 “1” “2” “3”（传递了三个参数）。</li>
+</ul>
+<h2 id="Shell-基本运算符"><a href="#Shell-基本运算符" class="headerlink" title="Shell 基本运算符"></a>Shell 基本运算符</h2><h3 id="支持的运算符"><a href="#支持的运算符" class="headerlink" title="支持的运算符"></a>支持的运算符</h3><ul>
+<li>算数运算符</li>
+<li>关系运算符</li>
+<li>布尔运算符</li>
+<li>字符串运算符</li>
+<li>文件测试运算符</li>
+</ul>
+<p>原生bash不支持简单的数学运算，但可以通过其他命令来实现，例如awk和expr，expr最常用</p>
+<h4 id="两数相加实例"><a href="#两数相加实例" class="headerlink" title="两数相加实例"></a>两数相加实例</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"></span><br><span class="line">val=`expr 2 + 2`</span><br><span class="line">echo "两数之和为：$val"</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li>表达式和运算符之间要有空格，例如 2+2 是不对的，必须写成 2 + 2，这与我们熟悉的大多数编程语言不一样。</li>
+<li>完整的表达式要被 ` ` 包含，注意这个字符不是常用的单引号，在 Esc 键下边。</li>
+</ul>
+<h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Shell</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
+        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/17/Shell/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/09/64位windows的Dos中取消了edit命令/" class="archive-article-date">
-  	<time datetime="2017-12-09T13:01:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/07/24/prometheus-alertmanager/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          prometheus_alertmanager
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/23/Static-links-and-dynamic-links/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Static links and dynamic links</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/09/64位windows的Dos中取消了edit命令/">64位windows的Dos中取消了edit命令</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Windows</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Dos</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Windows相关//" class="article-tag-list-link color5">Windows相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -308,8 +502,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
