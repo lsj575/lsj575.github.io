@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/24/prometheus-alertmanager/monitoring.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/prometheus-alertmanager/添加Incomming%20webhook.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/prometheus-alertmanager/slack%20demo.png">
-<meta property="og:updated_time" content="2019-07-24T02:20:16.115Z">
+<meta property="og:updated_time" content="2019-07-24T02:22:06.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="prometheus_alertmanager">
 <meta name="twitter:description" content="​        Alertmanager处理客户端应用程序（如Prometheus服务器）发送的警报。 它负责对它们进行重复数据删除，分组和路由，以及正确的接收器集成，例如电子邮件，PagerDuty或OpsGenie。 它还负责警报的静音和抑制。">
@@ -247,7 +247,9 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line"><span class="attr">  resolve_timeout:</span> <span class="number">5</span><span class="string">m</span> <span class="comment"># 处理超时时间，默认为5min</span></span><br><span class="line"><span class="attr">  slack_api_url:</span> <span class="attr">https://hooks.slack.com/services/TLB8USBMH/BLR1DBQES/DZ0QBBr9QaC**********</span></span><br><span class="line"></span><br><span class="line"><span class="attr">route:</span></span><br><span class="line"><span class="attr">  group_by:</span> <span class="string">['alertname']</span></span><br><span class="line"><span class="attr">  group_wait:</span> <span class="number">10</span><span class="string">s</span></span><br><span class="line"><span class="attr">  group_interval:</span> <span class="number">10</span><span class="string">s</span></span><br><span class="line"><span class="attr">  repeat_interval:</span> <span class="number">1</span><span class="string">m</span></span><br><span class="line"><span class="attr">  receiver:</span> <span class="string">'slack'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">receivers:</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">'slack'</span></span><br><span class="line"><span class="attr">  slack_configs:</span></span><br><span class="line"><span class="attr">  - channel:</span> <span class="string">'#monitoring'</span></span><br><span class="line"><span class="attr">    send_resolved:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    username:</span> <span class="string">'cdn_monitor_center'</span></span><br></pre></td></tr></table></figure>
 <p>会收到如下图片所示告警</p>
 <p><img src="/2019/07/24/prometheus-alertmanager/slack demo.png" alt="img"></p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://yunlzheng.gitbook.io/prometheus-book/parti-prometheus-ji-chu/alert" target="_blank" rel="noopener">https://yunlzheng.gitbook.io/prometheus-book/parti-prometheus-ji-chu/alert</a> </p>
+<p><a href="http://www.imooc.com/article/76127" target="_blank" rel="noopener">http://www.imooc.com/article/76127</a></p>
+
       
 
       
@@ -537,19 +539,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
